@@ -1,0 +1,7 @@
+@Composable
+fun MyApplicationNavigation() {
+
+val navController = rememberNavController()
+
+NavHost
+}
