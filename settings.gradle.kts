@@ -19,7 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "My Application"
+rootProject.name = "WhatsAppClone"
 include(":app")
 include(":common:domain")
 include(":common:data")

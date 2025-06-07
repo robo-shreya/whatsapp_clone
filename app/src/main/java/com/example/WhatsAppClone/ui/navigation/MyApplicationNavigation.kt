@@ -3,7 +3,7 @@
  *
  * Description: responsible for holding Nav Host.
  */
-package com.example.myapplication.ui.navigation
+package com.example.WhatsAppClone.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
@@ -14,7 +14,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.chat.ui.ChatScreen
 import com.example.conversations.ui.ConversationsListScreen
-import com.example.create_chat.ui.CreateChatScreen
 import com.example.framework.navigation.NavRoutes
 
 
