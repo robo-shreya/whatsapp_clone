@@ -7,7 +7,7 @@ package com.example.chat.datamodel
 
 import com.example.chat.datamodel.WebSocketMessageModel.Companion.TYPE_IMAGE
 import com.example.chat.datamodel.WebSocketMessageModel.Companion.TYPE_TEXT
-import com.example.chat.datamodel.model.MessageJsonResult
+import com.example.chat.datamodel.model.MessageJson
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -26,19 +26,19 @@ open class WebSocketMessageModel(
         const val TYPE_IMAGE = "IMAGE"
 
 
-    fun fromDomain(messageJsonResult: MessageJsonResult) =
+    fun fromDomain(messageJson: MessageJson) =
         WebSocketMessageModel(
-            id = messageJsonResult.id,
-            message = messageJsonResult.content,
-            senderName = messageJsonResult.senderName,
-            senderAvatar = messageJsonResult.senderAvatar,
-            timestamp = messageJsonResult.timeStamp,
-            isMine = messageJsonResult.isMine,
-            messageType = messageJsonResult.fromContentType(),
-            messageDescription = messageJsonResult.contentDescription
+            id = messageJson.id,
+            message = messageJson.content,
+            senderName = messageJson.senderName,
+            senderAvatar = messageJson.senderAvatar,
+            timestamp = messageJson.timeStamp,
+            isMine = messageJson.isMine,
+            messageType = messageJson.fromContentType(),
+            messageDescription = messageJson.contentDescription
         )
     }
-    fun toDomain() = MessageJsonResult(
+    fun toDomain() = MessageJson(
         id = id,
         senderName = senderName,
         senderAvatar = senderAvatar,
@@ -49,17 +49,17 @@ open class WebSocketMessageModel(
         timeStamp = timestamp,
     )
 
-    private fun toContentType(): MessageJsonResult.ContentType {
+    private fun toContentType(): MessageJson.ContentType {
         return when (messageType) {
-            TYPE_IMAGE -> MessageJsonResult.ContentType.IMAGE
-            else -> MessageJsonResult.ContentType.TEXT
+            TYPE_IMAGE -> MessageJson.ContentType.IMAGE
+            else -> MessageJson.ContentType.TEXT
         }
     }
 }
 
-fun MessageJsonResult.fromContentType(): String {
+fun MessageJson.fromContentType(): String {
     return when (contentType) {
-        MessageJsonResult.ContentType.IMAGE -> TYPE_IMAGE
+        MessageJson.ContentType.IMAGE -> TYPE_IMAGE
         else -> TYPE_TEXT
     }
 }

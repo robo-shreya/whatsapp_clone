@@ -6,7 +6,7 @@
 package com.example.chat.data.network.datasource
 
 import com.example.chat.datamodel.WebSocketMessageModel
-import com.example.chat.datamodel.model.MessageJsonResult
+import com.example.chat.datamodel.model.MessageJson
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.websocket.DefaultClientWebSocketSession
 import io.ktor.client.plugins.websocket.converter
@@ -31,7 +31,7 @@ class MessagesSocketDataSource @Inject constructor(
 ) {
     private lateinit var webSocketSession: DefaultClientWebSocketSession
 
-    suspend fun connect(url: String): Flow<MessageJsonResult> {
+    suspend fun connect(url: String): Flow<MessageJson> {
         return httpClient.webSocketSession {
             url { takeFrom(url) }
         }.apply {
@@ -44,20 +44,20 @@ class MessagesSocketDataSource @Inject constructor(
             }.map { it.toDomain() }
     }
 
-    suspend fun sendMessage(message: MessageJsonResult) {
+    suspend fun sendMessage(message: MessageJson) {
         val webSocketMessage =
             WebSocketMessageModel.fromDomain(message)
         webSocketSession.converter
             ?.serialize(
                 charset = Charsets.UTF_8,
-                typeInfo = typeInfo<MessageJsonResult>(),
+                typeInfo = typeInfo<MessageJson>(),
                 value = webSocketMessage
             )?.let {
                 webSocketSession.send(it)
             }
     }
 
-    private suspend fun disconnect() {
+    suspend fun disconnect() {
         webSocketSession.close(
             CloseReason(
                 CloseReason.Codes.NORMAL, "Disconnect"

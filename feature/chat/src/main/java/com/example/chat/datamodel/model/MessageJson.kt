@@ -8,7 +8,7 @@ package com.example.chat.datamodel.model
 /*
 * The one that we want to convert from json
 * */
-data class MessageJsonResult (
+data class MessageJson (
     val id: String,
     val senderName: String,
     val senderAvatar: String,
