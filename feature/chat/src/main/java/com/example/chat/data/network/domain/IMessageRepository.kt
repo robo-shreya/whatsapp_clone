@@ -5,14 +5,14 @@
  */
 package com.example.chat.data.network.domain
 
-import com.example.chat.datamodel.model.MessageJson
+import com.example.chat.data.network.domain.models.MessageDomainModel
 import kotlinx.coroutines.flow.Flow
 
 interface IMessageRepository {
 
-    suspend fun getMessages(): Flow<MessageJson>
+    suspend fun getMessages(chatId: String, userId: String): Flow<MessageDomainModel>
 
-    suspend fun sendMessage(message: MessageJson)
+    suspend fun sendMessage(chatId: String, message: MessageDomainModel)
 
     suspend fun disconnect()
 }

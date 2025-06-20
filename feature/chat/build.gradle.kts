@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.runtime.android)
     implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.firebase.messaging.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -75,4 +76,6 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     kapt(libs.hilt.compiler.v248)
     implementation(libs.ktor.serialization.kotlinx.json.v224)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation (libs.firebase.firestore.ktx)
 }

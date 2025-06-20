@@ -5,24 +5,37 @@
  */
 package com.example.chat.data.network.repository
 
-import com.example.chat.data.network.datasource.MessagesSocketDataSource
+import com.example.chat.data.network.datasource.messaging.FirestoreMessagesDataSource
 import com.example.chat.data.network.domain.IMessageRepository
-import com.example.chat.datamodel.model.MessageJson
+import com.example.chat.data.network.domain.models.MessageDomainModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class MessagesRepository @Inject constructor(
-    private val dataSource: MessagesSocketDataSource
+    private val dataSource: FirestoreMessagesDataSource
 ) : IMessageRepository{
-    override suspend fun getMessages(): Flow<MessageJson> {
-        return dataSource.connect("")
+    override suspend fun getMessages(
+        chatId: String,
+        userId: String
+    ): Flow<MessageDomainModel> {
+
+        return dataSource.getMessages(
+            chatId,
+            userId
+        )
     }
 
-    override suspend fun sendMessage(message: MessageJson){
-        dataSource.sendMessage(message)
+    override suspend fun sendMessage(
+        chatId: String,
+        message: MessageDomainModel
+    ){
+        dataSource.sendMessage(
+            chatId, message
+        )
     }
 
     override suspend fun disconnect(){
-        dataSource.disconnect()
+        //firestore data source is automatically disconnected as soon
+        //as the flow has no subscribers
     }
 }

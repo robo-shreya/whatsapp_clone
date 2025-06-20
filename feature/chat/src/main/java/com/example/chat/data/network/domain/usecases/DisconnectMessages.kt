@@ -6,13 +6,12 @@
 package com.example.chat.data.network.domain.usecases
 
 import com.example.chat.data.network.domain.IMessageRepository
-import com.example.chat.data.network.domain.models.MessageDomainModel
 import javax.inject.Inject
 
-class SendMessage @Inject constructor(
+class DisconnectMessages @Inject constructor(
     private val repository: IMessageRepository
 ) {
-    suspend operator fun invoke(chatId: String, message: MessageDomainModel) {
-        repository.sendMessage(chatId, message)
+    suspend operator fun invoke(){
+        repository.disconnect()
     }
 }

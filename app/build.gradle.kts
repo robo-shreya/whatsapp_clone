@@ -3,15 +3,16 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
     kotlin("kapt")
 }
 
 android {
-    namespace = "com.example.whatsappclone"
+    namespace = "com.example.whatsAppClone"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.whatsappclone"
+        applicationId = "com.example.whatsAppClone"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -68,6 +69,7 @@ android {
         implementation(libs.androidx.ui)
         implementation(libs.androidx.ui.graphics)
         implementation(libs.androidx.ui.tooling.preview)
+        implementation(libs.firebase.common.ktx)
         debugImplementation(libs.androidx.ui.tooling)
         debugImplementation(libs.androidx.ui.test.manifest)
         implementation(libs.ui.tooling.preview)
