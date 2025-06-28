@@ -65,10 +65,10 @@ class ChatViewModel @Inject constructor(
     }
 
     private fun MessageDomainModel.toUI() = MessageUI(
-        id = id,
+        id = id ?: "",
         senderName = senderName,
         senderAvatar = senderAvatar,
-        timestamp = timeStamp,
+        timestamp = timeStamp ?: "",
         isMine = isMine,
         messageContent = getMessageContent()
     )
@@ -86,14 +86,13 @@ class ChatViewModel @Inject constructor(
     fun onSendMessage(messageText: String) {
         viewModelScope.launch(Dispatchers.IO) {
             val message = MessageDomainModel(
-                senderName = "TODO()",
-                senderAvatar = "TODO()",
-                timeStamp = "TODO()",
+                conversationId = chatRoom.id,
+                senderAvatar = TODO()/*user.avatar*/,
+                senderName = TODO()/*user.name*/,
                 isMine = true,
                 contentType = MessageDomainModel.ContentType.TEXT,
                 content = messageText,
-                contentDescription = "TODO()",
-                id = "TODO()"
+                contentDescription = messageText
             )
 
             sendMessage(chatId = chatRoom.id, message = message)

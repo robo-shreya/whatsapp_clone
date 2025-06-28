@@ -14,8 +14,7 @@ import javax.inject.Inject
 * */
 
 class FCMTokenDataSource @Inject constructor(
-    private val firebaseMessaging: FirebaseMessaging =
-        FirebaseMessaging.getInstance()
+    private val firebaseMessaging: FirebaseMessaging
 ) {
     suspend fun getFcmToken(): String? {
         return try {

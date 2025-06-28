@@ -9,8 +9,8 @@ import android.content.Context
 import com.example.data.database.ChatAppDatabase
 import com.example.data.database.ConversationDao
 import com.example.data.database.MessageDao
-import com.google.android.datatransport.runtime.dagger.Module
-import com.google.android.datatransport.runtime.dagger.Provides
+import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent

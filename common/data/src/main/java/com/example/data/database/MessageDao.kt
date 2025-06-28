@@ -10,6 +10,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 /*
 * Dao is an interface that serves as a communication layer
@@ -23,7 +24,7 @@ interface MessageDao {
     fun insertMessage(messageEntity: MessageEntity) : Long
 
     @Query("SELECT * FROM messages WHERE conversation_id = :conversationId ORDER BY timestamp ASC")
-    fun getMessagesInConversation(conversationId: String) : List<MessageEntity>
+    fun getMessagesInConversation(conversationId: String) : Flow<List<MessageEntity>>
 
     @Delete
     suspend fun deleteMessage(messageEntity: MessageEntity)

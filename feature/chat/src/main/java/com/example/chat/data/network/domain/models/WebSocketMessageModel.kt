@@ -25,7 +25,7 @@ open class WebSocketMessageModel(
         const val TYPE_IMAGE = "IMAGE"
 
 
-    fun fromDomain(messageDomainModel: MessageDomainModel) =
+/*    fun fromDomain(messageDomainModel: MessageDomainModel) =
         WebSocketMessageModel(
             id = messageDomainModel.id,
             message = messageDomainModel.content,
@@ -35,7 +35,7 @@ open class WebSocketMessageModel(
             isMine = messageDomainModel.isMine,
             messageType = messageDomainModel.fromContentType(),
             messageDescription = messageDomainModel.contentDescription
-        )
+        )*/
     }
     fun toDomain() = MessageDomainModel(
         id = id,
@@ -46,6 +46,7 @@ open class WebSocketMessageModel(
         contentType = toContentType(),
         contentDescription = messageDescription,
         timeStamp = timestamp,
+        conversationId = id,
     )
 
     private fun toContentType(): MessageDomainModel.ContentType {

@@ -85,7 +85,7 @@ class MessagesSocketDataSource @Inject constructor(
         }
     }
 
-    suspend fun sendMessage(message: MessageDomainModel) {
+/*    suspend fun sendMessage(message: MessageDomainModel) {
         val webSocketMessage =
             WebSocketMessageModel.fromDomain(message)
         webSocketSession.converter
@@ -96,7 +96,7 @@ class MessagesSocketDataSource @Inject constructor(
             )?.let {
                 webSocketSession.send(it)
             }
-    }
+    }*/
 
     suspend fun disconnect() {
         webSocketSession.close(

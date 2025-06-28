@@ -5,6 +5,7 @@
  */
 package com.example.chat.data.network.repository
 
+import com.example.chat.data.network.datasource.MessagesLocalDataSource
 import com.example.chat.data.network.datasource.messaging.FirestoreMessagesDataSource
 import com.example.chat.data.network.domain.IMessageRepository
 import com.example.chat.data.network.domain.models.MessageDomainModel
@@ -12,7 +13,8 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class MessagesRepository @Inject constructor(
-    private val dataSource: FirestoreMessagesDataSource
+    private val dataSource: FirestoreMessagesDataSource,
+    private val localDataSource: MessagesLocalDataSource
 ) : IMessageRepository{
     override suspend fun getMessages(
         chatId: String,
