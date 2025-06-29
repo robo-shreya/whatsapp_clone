@@ -33,7 +33,7 @@ import androidx.room.PrimaryKey
     ])
 data class MessageEntity (
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey()
     val id: String,
 
     @ColumnInfo(name = "conversation_id")

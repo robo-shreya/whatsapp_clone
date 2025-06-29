@@ -55,4 +55,5 @@ dependencies {
     implementation(libs.kotlinx.coroutines.play.services)
     implementation(libs.hilt.android.v244)
     kapt(libs.hilt.compiler.v244)
+    kapt(libs.androidx.room.compiler)
 }

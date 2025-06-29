@@ -21,7 +21,7 @@ import com.example.framework.navigation.NavRoutes
 
 @Composable
 fun MyApplicationNavigation(navHostController: NavHostController) {
-    NavHost(navController = navHostController, startDestination = NavRoutes.CHAT.replace("{chatId}", "1")) {
+    NavHost(navController = navHostController, startDestination = NavRoutes.CONVERSATIONS_LIST) {
 
         addConversationsList(navHostController)
 

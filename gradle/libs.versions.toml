@@ -7,6 +7,8 @@ firebaseFirestore = "25.1.4"
 firebaseFirestoreKtx = "25.1.4"
 firebaseMessaging = "24.1.1"
 foundation = "1.8.2"
+googleHiltAndroid = "2.44"
+googleHiltCompiler = "2.44"
 gson = "2.10.1"
 hiltAndroid = "2.54"
 hiltAndroidCompiler = "2.48"
@@ -15,6 +17,7 @@ hiltAndroidVersion = "2.54"
 hiltCompiler = "2.54"
 hiltCompilerVersion = "2.54"
 hiltNavigationCompose = "1.2.0"
+hiltWorkVersion = "1.2.0"
 kotlin = "2.0.0"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -42,16 +45,24 @@ firebaseCommonKtx = "21.0.0"
 roomCommonJvm = "2.7.1"
 roomRuntimeAndroid = "2.7.1"
 firebaseStorageKtx = "21.0.2"
+workRuntimeKtxVersion = "2.10.2"
+hiltCommonVersion = "1.2.0"
+roomCompiler = "2.7.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "foundation" }
+androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltNavigationCompose" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+androidx-hilt-work-v100 = { module = "androidx.hilt:hilt-work", version.ref = "hiltWorkVersion" }
 androidx-material = { module = "androidx.compose.material:material", version.ref = "materialVersion" }
 androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 androidx-ui-v160 = { module = "androidx.compose.ui:ui", version.ref = "uiVersion" }
+androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtxVersion" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
+dagger-hilt-android-v244 = { module = "com.google.dagger:hilt-android", version.ref = "googleHiltAndroid" }
+dagger-hilt-compiler-v244 = { module = "com.google.dagger:hilt-compiler", version.ref = "googleHiltCompiler" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-auth = { module = "com.google.firebase:firebase-auth", version.ref = "firebaseAuth" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
@@ -101,6 +112,8 @@ firebase-common-ktx = { group = "com.google.firebase", name = "firebase-common-k
 androidx-room-common-jvm = { group = "androidx.room", name = "room-common-jvm", version.ref = "roomCommonJvm" }
 androidx-room-runtime-android = { group = "androidx.room", name = "room-runtime-android", version.ref = "roomRuntimeAndroid" }
 firebase-storage-ktx = { group = "com.google.firebase", name = "firebase-storage-ktx", version.ref = "firebaseStorageKtx" }
+androidx-hilt-common = { group = "androidx.hilt", name = "hilt-common", version.ref = "hiltCommonVersion" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomCompiler" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

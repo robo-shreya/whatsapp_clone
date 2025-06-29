@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.firebase.messaging.ktx)
     implementation(libs.firebase.storage.ktx)
+    implementation(libs.androidx.hilt.common)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -80,4 +81,9 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     implementation (libs.firebase.firestore.ktx)
     implementation(libs.gson)
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.hilt.work.v100)
+    kapt(libs.androidx.hilt.compiler)
+    implementation(libs.dagger.hilt.android.v244)
+    kapt(libs.dagger.hilt.compiler.v244)
 }

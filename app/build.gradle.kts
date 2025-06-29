@@ -93,4 +93,5 @@ android {
         implementation(libs.hilt.android.v248)
         implementation(libs.kotlinx.serialization.json)
         kapt(libs.hilt.compiler.v248)
+        implementation(libs.androidx.work.runtime.ktx)
     }
